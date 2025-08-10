@@ -8,10 +8,12 @@ interface Props {
 export function KnowledgeListFeature({ knowledges }: Props) {
   return (
     <Layout title="ナレッジ一覧">
+      <a href="/knowledges/new">新規作成</a>
+
       {knowledges.length ? (
         <ul>
           {knowledges.map((knowledge) => (
-            <li key={knowledge.knowledgeId}>{knowledge.knowledgeId}</li>
+            <li key={knowledge.knowledgeId}>{knowledge.content}</li>
           ))}
         </ul>
       ) : (
