@@ -25,7 +25,7 @@ export function KnowledgeListFeature({ knowledges, mode }: Props) {
             <ul>
               {knowledges.map((knowledge) => (
                 <li key={knowledge.knowledgeId} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <input name="knowledgeIds" type="checkbox" value={knowledge.knowledgeId} />
+                  <input name="knowledgeIds[]" type="checkbox" value={knowledge.knowledgeId} />
                   <a href={`/knowledges/${knowledge.knowledgeId}`}>{knowledge.title}</a>
                 </li>
               ))}
