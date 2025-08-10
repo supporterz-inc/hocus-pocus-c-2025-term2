@@ -21,6 +21,13 @@ export interface Knowledge {
   readonly authorId: string;
 
   /**
+   * ナレッジの見出し
+   *
+   * @todo (学生向け) 空白の場合は不正な Knowledge とみなす
+   */
+  readonly title: string;
+
+  /**
    * ナレッジの本文 (Markdown)
    *
    * @todo (学生向け) 空白の場合は不正な Knowledge とみなす
@@ -45,12 +52,13 @@ export interface Knowledge {
  * @param authorId ナレッジの作成者の ID
  * @returns 新規作成されたナレッジ
  */
-function create(content: Knowledge['content'], authorId: Knowledge['authorId']): Knowledge {
+function create(title: Knowledge['title'], content: Knowledge['content'], authorId: Knowledge['authorId']): Knowledge {
   const now = Math.floor(Date.now() / 1000);
 
   return {
     __tag: 'Knowledge',
     knowledgeId: randomUUID(),
+    title,
     content,
     authorId,
     createdAt: now,
@@ -65,9 +73,10 @@ function create(content: Knowledge['content'], authorId: Knowledge['authorId']):
  * @param content 新しいナレッジの本文
  * @returns 更新されたナレッジ
  */
-function update(self: Knowledge, content: Knowledge['content']): Knowledge {
+function update(self: Knowledge, title: Knowledge['title'], content: Knowledge['content']): Knowledge {
   return {
     ...self,
+    title,
     content,
     updatedAt: Math.floor(Date.now() / 1000),
   };
