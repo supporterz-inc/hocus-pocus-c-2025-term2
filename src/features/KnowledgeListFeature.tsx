@@ -11,33 +11,31 @@ export function KnowledgeListFeature({ knowledges, mode }: Props) {
 
   return (
     <Layout title="ナレッジ一覧">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <button
-          class="absolute bottom-4 left-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          onclick="window.location.href='/knowledges/new'"
-          type="button"
-        >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          position: 'absolute',
+          bottom: '10px',
+          left: '10px',
+          right: '10px',
+        }}
+      >
+        <button onclick="window.location.href='/knowledges/new'" type="button">
           新規作成
         </button>
+
         {isDeleteMode ? (
-          <button
-            class="absolute bottom-4 right-4 bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
-            onclick="window.location.href='/'"
-            type="button"
-          >
+          <button onclick="window.location.href='/'" type="button">
             キャンセル
           </button>
         ) : (
-          <button
-            class="absolute bottom-4 right-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-            onclick="window.location.href='/?mode=delete'"
-            type="button"
-          >
+          <button onclick="window.location.href='/?mode=delete'" type="button">
             削除
           </button>
         )}
       </div>
-
       {isDeleteMode && (
         <form action="/knowledges/delete" method="post">
           <button style={{ marginTop: '10px', marginBottom: '10px' }} type="submit">
@@ -59,7 +57,6 @@ export function KnowledgeListFeature({ knowledges, mode }: Props) {
           )}
         </form>
       )}
-
       {!isDeleteMode &&
         (knowledges.length ? (
           <ul>
