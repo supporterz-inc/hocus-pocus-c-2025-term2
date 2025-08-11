@@ -14,8 +14,8 @@ export function Layout({ title, children }: PropsWithChildren<Props>) {
         <link href="/index.css" rel="stylesheet" />
       </head>
 
-      <body>
-        <div class="w-[375px] mx-auto">{children}</div>
+      <body class="bg-white">
+        <div class="w-[375px] mx-auto bg-primary shadow-lg border relative">{children}</div>
       </body>
     </html>
   );
