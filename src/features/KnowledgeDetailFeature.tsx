@@ -75,6 +75,14 @@ export function KnowledgeDetailFeature({ knowledge }: Props) {
       <article>
         <h1 className="text-[var(--font-size-32)] text-center mb-[var(--spacing-m)]">{knowledge.title}</h1>
         <div>{parseMarkdown(knowledge.content || '')}</div>
+
+        <button
+          className="absolute bottom-4 left-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          onclick="window.location.href = '/'"
+          type="button"
+        >
+          戻る
+        </button>
       </article>
     </Layout>
   );
