@@ -15,5 +15,5 @@ export async function getKnowledgeController(ctx: Context) {
     return ctx.notFound();
   }
 
-  return ctx.html(<KnowledgeDetailFeature knowledge={knowledge} />);
+  return ctx.html(<KnowledgeDetailFeature canEdit={false} knowledge={knowledge} />);
 }
